@@ -1,5 +1,5 @@
 # espidf_pppos
-Thư viện này switch toàn bộ lưu lượng mạng từ wifi sang gsm cho esp32
+Thư viện này giúp điều hướng lưu lượng mạng của bạn sang modul gsm
 # Hỗ trợ
 - SIM76xx
 - SIM800,SIM900
