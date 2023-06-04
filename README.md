@@ -10,7 +10,7 @@ Thư viện này switch toàn bộ lưu lượng mạng từ wifi sang gsm cho e
  - Bật:  Enable PPP support (new/experimental)
  - Bật:  Enable Notify Phase Callback
  - Bật:  Enable PAP support
-### Trong CmakeList.txt add các dòng sau :
+### Trong CmakeList.txt của main add các dòng sau :
 "espidf_pppos/esp_modem.c"
 "espidf_pppos/esp_modem_dce_service"
 "espidf_pppos/esp_modem_netif.c"
