@@ -27,6 +27,7 @@ Thư viện này switch toàn bộ lưu lượng mạng từ wifi sang gsm cho e
 void GSM_init(int tx_pin,int rx_pin,int rst_pin,int uart_num, void * _modem_err_callback, void * _pppos_ok_callback, void * _pppos_dis_callback);
 
 # Ví dụ
+```
 void gsm_error()
 {
   ESP_LOGI(TAG, "Module error, please check hardware");
@@ -52,4 +53,4 @@ void app_main(void)
        vTaskDelay(1);
     }
 }
-
+```
