@@ -1,5 +1,5 @@
 # espidf_pppos
-Thư viện này giúp điều hướng lưu lượng mạng của bạn sang modul gsm
+Thư viện này giúp điều hướng lưu lượng mạng của bạn sang modul gsm một cách dễ dàng !
 # Hỗ trợ
 - SIM76xx
 - SIM800,SIM900
