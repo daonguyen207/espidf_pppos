@@ -26,3 +26,30 @@ Thư viện này switch toàn bộ lưu lượng mạng từ wifi sang gsm cho e
 ### Gọi hàm GSM_init để khởi động
 void GSM_init(int tx_pin,int rx_pin,int rst_pin,int uart_num, void * _modem_err_callback, void * _pppos_ok_callback, void * _pppos_dis_callback);
 
+# Ví dụ
+void gsm_error()
+{
+  ESP_LOGI(TAG, "Module error, please check hardware");
+}
+void internet_ok()
+{
+  ESP_LOGI(TAG, "Internet ok");
+}
+void internet_err()
+{
+  ESP_LOGI(TAG, "Internet stop");
+}
+void app_main(void)
+{
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    GSM_init(17,16,18,UART_NUM_1,gsm_error,internet_ok,internet_err);
+
+    while(1)
+    {
+       vTaskDelay(1);
+    }
+}
+
