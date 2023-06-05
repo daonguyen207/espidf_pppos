@@ -115,6 +115,7 @@ vTaskDelay(pdMS_TO_TICKS(5000));
         if(counter_retry > 20)
         {
             if(modem_err_callback)modem_err_callback();
+            free(data);
             return;
         }
     }
@@ -133,9 +134,11 @@ vTaskDelay(pdMS_TO_TICKS(5000));
         if(counter_retry > 20)
         {
             if(modem_err_callback)modem_err_callback();
+            free(data);
             return;
         }
     }
+    free(data);
     uart_write_bytes(uart_num, "AT+NETCLOSE\r\n", 12);
     vTaskDelay(pdMS_TO_TICKS(500));
     uart_driver_delete(uart_num); //xóa uart để cho lib pppos xài
