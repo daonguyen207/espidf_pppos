@@ -78,7 +78,14 @@ modem_err_callback=_modem_err_callback;
 pppos_ok_callback=_pppos_ok_callback;
 pppos_dis_callback=_pppos_dis_callback;
 ESP_LOGI(TAG, "Module: reset");
-gpio_set_direction(rst_pin, GPIO_MODE_OUTPUT);
+gpio_config_t conf = {
+        .pin_bit_mask = (1ULL<<rst_pin),                 /*!< GPIO pin: set with bit mask, each bit maps to a GPIO */
+        .mode = GPIO_MODE_OUTPUT,                   /*!< GPIO mode: set input/output mode                     */
+        .pull_up_en = GPIO_PULLUP_ENABLE,           /*!< GPIO pull-up                                         */
+        .pull_down_en = GPIO_PULLDOWN_ENABLE,       /*!< GPIO pull-down                                       */
+        .intr_type = GPIO_INTR_DISABLE,  /*!< GPIO interrupt type - previously set                 */
+    };
+gpio_config(&conf);
 
 gpio_set_level(rst_pin, 0);
 vTaskDelay(pdMS_TO_TICKS(2000));
